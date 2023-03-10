@@ -73,8 +73,6 @@ namespace Catalog.API.Repositories
                 .Products
                 .DeleteOneAsync(p => p.Name == name);
 
-            var test = "test";
-
             return
                 deleteResult.IsAcknowledged
                 && deleteResult.DeletedCount > 0;
