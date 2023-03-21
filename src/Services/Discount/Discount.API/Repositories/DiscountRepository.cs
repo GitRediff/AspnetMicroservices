@@ -22,7 +22,9 @@ namespace Discount.API.Repositories
         {
             using var connection = new NpgsqlConnection
                 (_configuration.GetConnectionString("DiscountDbConn"));
-                //(_configuration.GetValue<string>("DatabaseSettings.ConnectionString"));
+            //("Server=discountdb;Port=5432;Database=Discountdb;User Id=admin;Password=Newuser@1234;");
+            //(_configuration.GetValue<string>("DatabaseSettings.ConnectionString")); // very previous connection
+
 
             var coupon = await connection.QueryFirstOrDefaultAsync<Coupon>
                 ("Select * from coupon where productname = @ProdcutName", new { ProdcutName = prodcutName });
