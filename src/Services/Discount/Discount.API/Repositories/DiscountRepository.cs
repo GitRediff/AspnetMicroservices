@@ -21,10 +21,10 @@ namespace Discount.API.Repositories
         public async Task<Coupon> GetDiscount(string prodcutName)
         {
             using var connection = new NpgsqlConnection
-                (_configuration.GetConnectionString("DiscountDbConn"));
-            //("Server=discountdb;Port=5432;Database=Discountdb;User Id=admin;Password=Newuser@1234;");
-            //(_configuration.GetValue<string>("DatabaseSettings.ConnectionString")); // very previous connection
+                ("Server=localhost;Port=5432;Database=Discountdb;User Id=admin;Password=Newuser@1234;");
+            //(_configuration.GetConnectionString("DiscountDbConn"));
 
+            connection.Open();
 
             var coupon = await connection.QueryFirstOrDefaultAsync<Coupon>
                 ("Select * from coupon where productname = @ProdcutName", new { ProdcutName = prodcutName });
