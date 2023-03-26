@@ -21,7 +21,7 @@ namespace Discount.Grpc.Repositories
         public async Task<Coupon> GetDiscount(string prodcutName)
         {
             using var connection = new NpgsqlConnection
-                (_configuration.GetConnectionString("DiscountDbConn"));
+                (_configuration.GetConnectionString("DiscountDbConn"));   // use double underscore in docker compose file 
             //("Server=discountdb;Port=5432;Database=Discountdb;User Id=admin;Password=Newuser@1234;");
             //(_configuration.GetValue<string>("DatabaseSettings.ConnectionString")); // very previous connection
 

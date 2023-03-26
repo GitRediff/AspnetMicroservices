@@ -21,10 +21,7 @@ namespace Discount.API.Repositories
         public async Task<Coupon> GetDiscount(string prodcutName)
         {
             using var connection = new NpgsqlConnection
-                ("Server=localhost;Port=5432;Database=Discountdb;User Id=admin;Password=Newuser@1234;");
-            //(_configuration.GetConnectionString("DiscountDbConn"));
-
-            connection.Open();
+              (_configuration.GetConnectionString("DiscountDbConn"));  // use double underscore in docker compose file
 
             var coupon = await connection.QueryFirstOrDefaultAsync<Coupon>
                 ("Select * from coupon where productname = @ProdcutName", new { ProdcutName = prodcutName });
