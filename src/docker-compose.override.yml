@@ -25,7 +25,7 @@ services:
     environment:
       - POSTGRES_USER=admin
       - POSTGRES_PASSWORD=Newuser@1234
-      - POSTGRES_DB=Discountdb
+      - POSTGRES_DB=Discountdb 
     restart: always
     volumes:
       - postgres_data:/var/lib/postgresql/data
