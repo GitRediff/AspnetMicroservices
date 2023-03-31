@@ -12,7 +12,14 @@
       ],
       "UpstreamPathTemplate": "/Catalog",
       "UpstreamHttpMethod": [ "GET", "POST", "PUT" ],
-      "FileCacheOptions": { "TtlSeconds": 30 }
+      "RateLimitOptions": {
+        "ClientWiteList": [],
+        "EnableRateLimiting": true,
+        "Period": "5s",
+        "PeriodTimespan": 1,
+        "Limit": 1
+      }
+      //"FileCacheOptions": { "TtlSeconds": 30 }
     },
     {
       "DownstreamPathTemplate": "/api/v1/Catalog/{id}",
